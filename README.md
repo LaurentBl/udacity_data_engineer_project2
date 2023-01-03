@@ -114,8 +114,8 @@ This file will contain all required credentials to connect to the cluster as per
 This file must be run prior to running 'etl.py'
 It will connect to the redshift cluster (thanks to credentials stored in 'dwh.cfg') and DROP (if necessary) then CREATE the following tables:
 staging:
-	*staging_events
-	*staging_songs
+*staging_events
+*staging_songs
 
 analytics:
 	*users
