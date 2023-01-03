@@ -143,29 +143,29 @@ This file is loaded by `etl.py` and contains all the queries (in SQL) used to ca
 
 ### Top 3 ever played songs
 
-	`SELECT songs.title,COUNT(*) totalcounter
+	SELECT songs.title,COUNT(*) totalcounter
         FROM songplays
         JOIN songs ON songplays.song_id=songs.song_id
         GROUP BY 1
         ORDER BY 2 DESC
-        LIMIT 3`
+        LIMIT 3
 
 
 | title | totalcounter |
 |---|---|
-| You`re The One | 37 |
-| I CAN`T GET STARTED | 9 |
+| You're The One | 37 |
+| I CAN'T GET STARTED | 9 |
 | Catch You Baby (Steve Pitron & Max Sanna Radio Edit) | 9 |
 
 
 
 ### Top day of the week in terms of song plays
-	`SELECT weekday,COUNT(*) AS totalcounter
+	SELECT weekday,COUNT(*) AS totalcounter
         FROM songplays
         LEFT JOIN time
         ON songplays.start_time=time.start_time
         GROUP BY 1
-        ORDER BY 2 desc`
+        ORDER BY 2 desc
         
 |weekday|	totalcounter|
 |---|---|
