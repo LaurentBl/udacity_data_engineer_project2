@@ -153,6 +153,12 @@ This file is loaded by 'etl.py' and contains all the queries (in SQL) used to ca
 | I CAN'T GET STARTED | 9 |
 | Catch You Baby (Steve Pitron & Max Sanna Radio Edit) | 9 |
 
+| header1  | header2   |
+|---|---|
+| 2  | a  |
+| 3  | b  |
+| 4  | b  |
+
 
 | title | totalcounter |
 | ------------- | ------------- |
