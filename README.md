@@ -153,17 +153,7 @@ This file is loaded by 'etl.py' and contains all the queries (in SQL) used to ca
 | I CAN'T GET STARTED | 9 |
 | Catch You Baby (Steve Pitron & Max Sanna Radio Edit) | 9 |
 
-| header1  | header2   |
-|---|---|
-| 2  | a  |
-| 3  | b  |
-| 4  | b  |
 
-
-| title | totalcounter |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
 
 ### Top day of the week in terms of song plays
 	'SELECT weekday,COUNT(*) AS totalcounter
@@ -173,11 +163,11 @@ This file is loaded by 'etl.py' and contains all the queries (in SQL) used to ca
         GROUP BY 1
         ORDER BY 2 desc'
         
-    weekday	totalcounter
-	4	63
-	1	59
-	3	58
-	5	51
-	2	42
-	6	30
-	0	16
+|weekday|	totalcounter|
+|4|	63|
+|1|	59|
+|3	|58|
+|5	|51|
+|2	|42|
+|6|	30|
+|0|	16|
