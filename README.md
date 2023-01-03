@@ -149,9 +149,9 @@ This file is loaded by 'etl.py' and contains all the queries (in SQL) used to ca
 
 | title | totalcounter |
 | --------------------| ------------- |
-| You're The One                                        | 37            |
-| I CAN'T GET STARTED                                   | 9             |
-| Catch You Baby (Steve Pitron & Max Sanna Radio Edit)  | 9             |
+| You're The One | 37 |
+| I CAN'T GET STARTED | 9 |
+| Catch You Baby (Steve Pitron & Max Sanna Radio Edit) | 9 |
 
 
 | title | totalcounter |
