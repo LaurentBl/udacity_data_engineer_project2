@@ -5,6 +5,7 @@ Sparkify is a music streaming company that has data about songs and when and how
 The aim of this project is to turn these massive datasets into a structure that can easily be used for analytical purposes
 
 ## Database design
+
 	'staging_events - contains raw data about events'
 		artist VARCHAR,
 	    auth VARCHAR,
@@ -93,6 +94,7 @@ We have 4 dimensions tables ('users','songs','artists' and 'time') and 1 fact ta
 
 ### dwh.cfg
 This file will contain all required credentials to connect to the cluster as per the following structure
+	
 	[CLUSTER]
 	HOST=
 	DB_NAME=
@@ -110,23 +112,23 @@ This file will contain all required credentials to connect to the cluster as per
 	
 ### create_tables.py
 This file must be run prior to running 'etl.py'
-If will connect to the redshift cluster (thanks to credentials stored in 'dwh.cfg') and DROP (if necessary) then CREATE the following tables:
+It will connect to the redshift cluster (thanks to credentials stored in 'dwh.cfg') and DROP (if necessary) then CREATE the following tables:
 staging:
-*staging_events
-*staging_songs
+	*staging_events
+	*staging_songs
 
 analytics:
-*users
-*songs
-*artists
-*time
-*songplays
+	*users
+	*songs
+	*artists
+	*time
+	*songplays
 
 ### etl.py
 'create_tables.py' must be run first!
 Executing this file will:
-*load both datasets into the staging tables
-*process the data from the staging tables and load it into the fact and dimension star schema tables
+	*load both datasets into the staging tables
+	*process the data from the staging tables and load it into the fact and dimension star schema tables
 
 All queries are stored in 'sql_queries.py'
 
