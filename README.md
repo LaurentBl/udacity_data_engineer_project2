@@ -155,7 +155,7 @@ This file is loaded by 'etl.py' and contains all the queries (in SQL) used to ca
 
 
 
-| First Header  | Second Header |
+| title  | totalcounter |
 | ------------- | ------------- |
 | Content Cell  | Content Cell  |
 | Content Cell  | Content Cell  |
