@@ -5,78 +5,78 @@ Sparkify is a music streaming company that has data about songs and when and how
 The aim of this project is to turn these massive datasets into a structure that can easily be used for analytical purposes
 
 ## Database design
-'staging_events - contains raw data about events'
-	artist VARCHAR,
-    auth VARCHAR,
-	firstName VARCHAR,
-	gender VARCHAR,
-	itemInSession INTEGER,
-	lastName VARCHAR,
-	length FLOAT,
-	level VARCHAR,
-	location VARCHAR,
-	method VARCHAR,
-	page VARCHAR,
-	registration FLOAT,
-	sessionId INTEGER,
-	song VARCHAR,
-	status INTEGER,
-	ts BIGINT,
-	userAgent VARCHAR,
-	userId VARCHAR
+	'staging_events - contains raw data about events'
+		artist VARCHAR,
+	    auth VARCHAR,
+		firstName VARCHAR,
+		gender VARCHAR,
+		itemInSession INTEGER,
+		lastName VARCHAR,
+		length FLOAT,
+		level VARCHAR,
+		location VARCHAR,
+		method VARCHAR,
+		page VARCHAR,
+		registration FLOAT,
+		sessionId INTEGER,
+		song VARCHAR,
+		status INTEGER,
+		ts BIGINT,
+		userAgent VARCHAR,
+		userId VARCHAR
 
-'staging_songs - contains raw data about songs'
-	num_songs INTEGER,
-	artist_id VARCHAR,
-	artist_latitude FLOAT,
-	artist_longitude FLOAT,
-	artist_location VARCHAR,
-	artist_name VARCHAR,
-	song_id VARCHAR,
-	title VARCHAR,
-	duration FLOAT,
-	year INTEGER
+	'staging_songs - contains raw data about songs'
+		num_songs INTEGER,
+		artist_id VARCHAR,
+		artist_latitude FLOAT,
+		artist_longitude FLOAT,
+		artist_location VARCHAR,
+		artist_name VARCHAR,
+		song_id VARCHAR,
+		title VARCHAR,
+		duration FLOAT,
+		year INTEGER
 	
-'fact-songplays - contains analytics data about songplays'
-	songplay_id BIGINT IDENTITY(0,1) NOT NULL sortkey,
-	start_time TIMESTAMP NOT NULL,
-	user_id VARCHAR NOT NULL,
-	level VARCHAR NOT NULL,
-	song_id VARCHAR NOT NULL distkey,
-	artist_id VARCHAR NOT NULL,
-	session_id INT NOT NULL,
-	location VARCHAR,
-	user_agent VARCHAR
+	'fact-songplays - contains analytics data about songplays'
+		songplay_id BIGINT IDENTITY(0,1) NOT NULL sortkey,
+		start_time TIMESTAMP NOT NULL,
+		user_id VARCHAR NOT NULL,
+		level VARCHAR NOT NULL,
+		song_id VARCHAR NOT NULL distkey,
+		artist_id VARCHAR NOT NULL,
+		session_id INT NOT NULL,
+		location VARCHAR,
+		user_agent VARCHAR
 
-'dim-users - contains analytics data about users'
-	user_id VARCHAR NOT NULL sortkey,
-	first_name VARCHAR,
-	last_name VARCHAR,
-	gender VARCHAR,
-	level VARCHAR
+	'dim-users - contains analytics data about users'
+		user_id VARCHAR NOT NULL sortkey,
+		first_name VARCHAR,
+		last_name VARCHAR,
+		gender VARCHAR,
+		level VARCHAR
 
-'dim-songs - contains analytics data about songs'
-	song_id VARCHAR NOT NULL sortkey,
-	title VARCHAR NOT NULL,
-	artist_id VARCHAR NOT NULL distkey,
-	year INT NOT NULL,
-	duration FLOAT NOT NULL
+	'dim-songs - contains analytics data about songs'
+		song_id VARCHAR NOT NULL sortkey,
+		title VARCHAR NOT NULL,
+		artist_id VARCHAR NOT NULL distkey,
+		year INT NOT NULL,
+		duration FLOAT NOT NULL
 	
-'dim-artists - contains analytics data about artists'
-	artist_id VARCHAR NOT NULL sortkey,
-	name VARCHAR NOT NULL,
-	location VARCHAR,
-	latitude FLOAT,
-	longitude FLOAT
+	'dim-artists - contains analytics data about artists'
+		artist_id VARCHAR NOT NULL sortkey,
+		name VARCHAR NOT NULL,
+		location VARCHAR,
+		latitude FLOAT,
+		longitude FLOAT
 	
-'dim-time - contains analytics data bout time'
-	start_time TIMESTAMP NOT NULL sortkey,
-	hour INT NOT NULL,
-	day INT NOT NULL,
-	week INT NOT NULL,
-	month INT NOT NULL,
-	year INT NOT NULL,
-	weekday INT NOT NULL
+	'dim-time - contains analytics data bout time'
+		start_time TIMESTAMP NOT NULL sortkey,
+		hour INT NOT NULL,
+		day INT NOT NULL,
+		week INT NOT NULL,
+		month INT NOT NULL,
+		year INT NOT NULL,
+		weekday INT NOT NULL
 	
 
 
