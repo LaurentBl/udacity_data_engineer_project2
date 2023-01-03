@@ -116,8 +116,8 @@ It will connect to the redshift cluster (thanks to credentials stored in 'dwh.cf
 
 staging:
 
-*staging_events
-*staging_songs
+	*staging_events
+	*staging_songs
 
 analytics:
 	*users
