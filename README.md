@@ -116,15 +116,16 @@ It will connect to the redshift cluster (thanks to credentials stored in 'dwh.cf
 
 staging:
 
-	*staging_events
-	*staging_songs
+* staging_events
+* staging_songs
 
 analytics:
-	*users
-	*songs
-	*artists
-	*time
-	*songplays
+
+* users
+* songs
+* artists
+* time
+* songplays
 
 ### etl.py
 'create_tables.py' must be run first!
