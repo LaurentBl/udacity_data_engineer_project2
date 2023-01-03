@@ -146,6 +146,7 @@ This file is loaded by 'etl.py' and contains all the queries (in SQL) used to ca
         ORDER BY 2 DESC
         LIMIT 3'
 
+
 | title                                                 | totalcounter  |
 | ----------------------------------------------------- | ------------- |
 | You're The One                                        | 37            |
