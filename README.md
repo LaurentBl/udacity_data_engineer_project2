@@ -1,14 +1,14 @@
 # Udacity Data Engineer nanodegree: Cloud Data Warehouse project
 
 ## Context and purpose
-Sparkify is a music streaming company that has data about songs and when and how they are played by their users
+Sparkify is a music streaming company that has data about songs and when and how they are played by their users.
 The aim of this project is to turn these massive datasets into a structure that can easily be used for analytical purposes
 
 ## Database design
 
-	'staging_events - contains raw data about events'
+	`staging_events - contains raw data about events`
 		artist VARCHAR,
-	    auth VARCHAR,
+		auth VARCHAR,
 		firstName VARCHAR,
 		gender VARCHAR,
 		itemInSession INTEGER,
@@ -26,7 +26,7 @@ The aim of this project is to turn these massive datasets into a structure that 
 		userAgent VARCHAR,
 		userId VARCHAR
 
-	'staging_songs - contains raw data about songs'
+	`staging_songs - contains raw data about songs`
 		num_songs INTEGER,
 		artist_id VARCHAR,
 		artist_latitude FLOAT,
@@ -38,7 +38,7 @@ The aim of this project is to turn these massive datasets into a structure that 
 		duration FLOAT,
 		year INTEGER
 	
-	'fact-songplays - contains analytics data about songplays'
+	`fact-songplays - contains analytics data about songplays`
 		songplay_id BIGINT IDENTITY(0,1) NOT NULL sortkey,
 		start_time TIMESTAMP NOT NULL,
 		user_id VARCHAR NOT NULL,
@@ -49,28 +49,28 @@ The aim of this project is to turn these massive datasets into a structure that 
 		location VARCHAR,
 		user_agent VARCHAR
 
-	'dim-users - contains analytics data about users'
+	`dim-users - contains analytics data about users`
 		user_id VARCHAR NOT NULL sortkey,
 		first_name VARCHAR,
 		last_name VARCHAR,
 		gender VARCHAR,
 		level VARCHAR
 
-	'dim-songs - contains analytics data about songs'
+	`dim-songs - contains analytics data about songs`
 		song_id VARCHAR NOT NULL sortkey,
 		title VARCHAR NOT NULL,
 		artist_id VARCHAR NOT NULL distkey,
 		year INT NOT NULL,
 		duration FLOAT NOT NULL
 	
-	'dim-artists - contains analytics data about artists'
+	`dim-artists - contains analytics data about artists`
 		artist_id VARCHAR NOT NULL sortkey,
 		name VARCHAR NOT NULL,
 		location VARCHAR,
 		latitude FLOAT,
 		longitude FLOAT
 	
-	'dim-time - contains analytics data bout time'
+	`dim-time - contains analytics data bout time`
 		start_time TIMESTAMP NOT NULL sortkey,
 		hour INT NOT NULL,
 		day INT NOT NULL,
@@ -84,11 +84,11 @@ The aim of this project is to turn these massive datasets into a structure that 
 ## Pipeline design
 
 ### Staging
-The information about songs and events are loaded into staging tables ('staging_events' and 'staging_songs')
+The information about songs and events are loaded into staging tables (`staging_events` and `staging_songs`)
 
 ### Star schema
 We then populate 5 tables of the selected star schema with information sourced from the staging tables.
-We have 4 dimensions tables ('users','songs','artists' and 'time') and 1 fact table ('songplays')
+We have 4 dimensions tables (`users`,`songs`,`artists` and `time`) and 1 fact table (`songplays`)
 
 ## DB and pipeline usage
 
@@ -103,16 +103,16 @@ This file will contain all required credentials to connect to the cluster as per
 	DB_PORT=
 	
 	[IAM_ROLE]
-	ARN=''
+	ARN=``
 	
 	[S3]
-	LOG_DATA='s3://udacity-dend/log-data'
-	LOG_JSONPATH='s3://udacity-dend/log_json_path.json'
-	SONG_DATA='s3://udacity-dend/song-data'
+	LOG_DATA=`s3://udacity-dend/log-data`
+	LOG_JSONPATH=`s3://udacity-dend/log_json_path.json`
+	SONG_DATA=`s3://udacity-dend/song-data`
 	
 ### create_tables.py
-This file must be run prior to running 'etl.py'
-It will connect to the redshift cluster (thanks to credentials stored in 'dwh.cfg') and DROP (if necessary) then CREATE the following tables:
+This file must be run prior to running `etl.py`
+It will connect to the redshift cluster (thanks to credentials stored in `dwh.cfg`) and DROP (if necessary) then CREATE the following tables:
 
 staging:
 
@@ -128,44 +128,44 @@ analytics:
 * songplays
 
 ### etl.py
-'create_tables.py' must be run first!
+`create_tables.py` must be run first!
 Executing this file will:
 
 * load both datasets into the staging tables
 * process the data from the staging tables and load it into the fact and dimension star schema tables
 
-All queries are stored in 'sql_queries.py'
+All queries are stored in `sql_queries.py`
 
 ### sql_queries.py
-This file is loaded by 'etl.py' and contains all the queries (in SQL) used to carry out (DROP), CREATE and INSERT statements. 
+This file is loaded by `etl.py` and contains all the queries (in SQL) used to carry out (DROP), CREATE and INSERT statements. 
 
 ## Sample queries
 
 ### Top 3 ever played songs
 
-	'SELECT songs.title,COUNT(*) totalcounter
+	`SELECT songs.title,COUNT(*) totalcounter
         FROM songplays
         JOIN songs ON songplays.song_id=songs.song_id
         GROUP BY 1
         ORDER BY 2 DESC
-        LIMIT 3'
+        LIMIT 3`
 
 
 | title | totalcounter |
 |---|---|
-| You're The One | 37 |
-| I CAN'T GET STARTED | 9 |
+| You`re The One | 37 |
+| I CAN`T GET STARTED | 9 |
 | Catch You Baby (Steve Pitron & Max Sanna Radio Edit) | 9 |
 
 
 
 ### Top day of the week in terms of song plays
-	'SELECT weekday,COUNT(*) AS totalcounter
+	`SELECT weekday,COUNT(*) AS totalcounter
         FROM songplays
         LEFT JOIN time
         ON songplays.start_time=time.start_time
         GROUP BY 1
-        ORDER BY 2 desc'
+        ORDER BY 2 desc`
         
 |weekday|	totalcounter|
 |---|---|
