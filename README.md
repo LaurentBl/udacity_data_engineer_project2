@@ -154,7 +154,6 @@ This file is loaded by 'etl.py' and contains all the queries (in SQL) used to ca
 | Catch You Baby (Steve Pitron & Max Sanna Radio Edit)  | 9             |
 
 
-
 | title | totalcounter |
 | ------------- | ------------- |
 | Content Cell  | Content Cell  |
