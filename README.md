@@ -130,8 +130,9 @@ analytics:
 ### etl.py
 'create_tables.py' must be run first!
 Executing this file will:
-	*load both datasets into the staging tables
-	*process the data from the staging tables and load it into the fact and dimension star schema tables
+
+* load both datasets into the staging tables
+* process the data from the staging tables and load it into the fact and dimension star schema tables
 
 All queries are stored in 'sql_queries.py'
 
